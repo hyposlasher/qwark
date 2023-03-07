@@ -1,0 +1,14 @@
+{
+  "name": "qwark",
+  "version": "1.0.0",
+  "description": "Make React.useState global",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dinislam Maushov",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  }
+}
