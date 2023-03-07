@@ -14,9 +14,9 @@ export function createQwark<T>(initialValue: T): GlobalStateHook<T> {
   const listeners = new Set<Dispatch<SetStateAction<T>>>();
 
   return () => {
-    const [value, setValue] = useState<T>(globalState);
+    const [state, setState] = useState<T>(globalState);
 
-    const handleSetValue = useCallback((nextState: SetStateAction<T>) => {
+    const handleSetState = useCallback((nextState: SetStateAction<T>) => {
       if (nextState instanceof Function) {
         globalState = nextState(globalState);
       } else {
@@ -26,12 +26,12 @@ export function createQwark<T>(initialValue: T): GlobalStateHook<T> {
     }, []);
 
     useEffect(() => {
-      listeners.add(setValue);
+      listeners.add(setState);
       return () => {
-        listeners.delete(setValue);
+        listeners.delete(setState);
       };
     }, []);
 
-    return [value, handleSetValue];
+    return [state, handleSetState];
   };
 }
