@@ -6,24 +6,32 @@ import {
   useState,
 } from "react";
 
-type GlobalStateHook<T> = () => [T, Dispatch<SetStateAction<T>>];
+type QwarkHook<QwarkType> = () => [
+  QwarkType,
+  Dispatch<SetStateAction<QwarkType>>
+];
 
-export function createQwark<T>(initialValue: T): GlobalStateHook<T> {
-  let globalState: T = initialValue;
+export function qwark<QwarkType>(
+  initialValue: QwarkType
+): QwarkHook<QwarkType> {
+  let globalState: QwarkType = initialValue;
 
-  const listeners = new Set<Dispatch<SetStateAction<T>>>();
+  const listeners = new Set<Dispatch<SetStateAction<QwarkType>>>();
 
   return () => {
-    const [state, setState] = useState<T>(globalState);
+    const [state, setState] = useState<QwarkType>(globalState);
 
-    const handleSetState = useCallback((nextState: SetStateAction<T>) => {
-      if (nextState instanceof Function) {
-        globalState = nextState(globalState);
-      } else {
-        globalState = nextState;
-      }
-      listeners.forEach((listener) => listener(globalState));
-    }, []);
+    const handleSetState = useCallback(
+      (nextState: SetStateAction<QwarkType>) => {
+        if (nextState instanceof Function) {
+          globalState = nextState(globalState);
+        } else {
+          globalState = nextState;
+        }
+        listeners.forEach((listener) => listener(globalState));
+      },
+      []
+    );
 
     useEffect(() => {
       listeners.add(setState);
