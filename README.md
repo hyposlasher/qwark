@@ -1,4 +1,4 @@
-# Qwark Global State Management Library
+# Simplest way to make `useState` global
 
 `qwark` creates a global `useState` hook. No Context. No Providers. With `useState` API
 
