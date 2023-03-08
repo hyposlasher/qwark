@@ -2,13 +2,17 @@
   "name": "qwark",
   "version": "1.0.0",
   "description": "Make React.useState global",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Dinislam Maushov",
   "license": "ISC",
   "peerDependencies": {
     "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
   }
 }
