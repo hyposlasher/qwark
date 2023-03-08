@@ -1,6 +1,6 @@
 {
   "name": "qwark",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Make React.useState global",
   "main": "dist/index.js",
   "scripts": {
