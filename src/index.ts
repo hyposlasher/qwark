@@ -11,7 +11,7 @@ type QwarkHook<QwarkType> = () => [
   Dispatch<SetStateAction<QwarkType>>
 ];
 
-export function qwark<QwarkType>(
+export default function qwark<QwarkType>(
   initialValue: QwarkType
 ): QwarkHook<QwarkType> {
   let globalState: QwarkType = initialValue;
