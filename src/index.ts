@@ -14,21 +14,21 @@ type QwarkHook<QwarkType> = () => [
 export default function qwark<QwarkType>(
   initialValue: QwarkType
 ): QwarkHook<QwarkType> {
-  let globalState: QwarkType = initialValue;
+  let value: QwarkType = initialValue;
 
   const listeners = new Set<Dispatch<SetStateAction<QwarkType>>>();
 
   return () => {
-    const [state, setState] = useState<QwarkType>(globalState);
+    const [state, setState] = useState<QwarkType>(value);
 
     const handleSetState = useCallback(
       (nextState: SetStateAction<QwarkType>) => {
         if (nextState instanceof Function) {
-          globalState = nextState(globalState);
+          value = nextState(value);
         } else {
-          globalState = nextState;
+          value = nextState;
         }
-        listeners.forEach((listener) => listener(globalState));
+        listeners.forEach((listener) => listener(value));
       },
       []
     );
