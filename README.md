@@ -1,4 +1,4 @@
-# Simplest way to make `useState` global
+# Qwark is the simplest global state hook for React with `useState` API
 
 `qwark` creates a global `useState` hook. No Context. No Providers. With `useState` API
 
@@ -15,28 +15,31 @@ yarn add qwark
 ```
 
 ## Usage
-
+### Create qwark hook
 ```javascript
-import React from "react";
 import qwark from "qwark";
 
 const initialState = 0;
-const useGlobalCount = qwark(initialState);
 
-const MyComponent = () => {
-  const [count, setCount] = useGlobalCount();
+const useCountQwark = qwark(initialState);
+```
+### Use the created qwark hook in any React component
+``` javascript
+const Button = () => {
+  const [count, setCount] = useCountQwark();
 
   return <button onClick={() => setCount(count + 1)}>Increment</button>
   );
 };
-
-// Whenever the count state updates, AnotherComponent will render and receive the updated state.
-const AnotherComponent = () => {
-  const [count] = useGlobalCount();
-
-  return <p>{count}</p>;
-}
 ```
+
+``` javascript
+const Count = () => {
+  const [count] = useCountQwark();
+
+  return <p>{count}</p>
+  );
+};
 
 
 
