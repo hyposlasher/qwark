@@ -1,4 +1,5 @@
 # the simpliest way to make `useState` global
+[Demo](https://codesandbox.io/s/qwark-demo-5ohe7g)
 
 `qwark` creates a global `useState` hook. No Context. No Providers. With `useState`-like API
 
@@ -26,8 +27,7 @@ const useCountQwark = qwark(0); // call with initial state
 const Button = () => {
   const [count, setCount] = useCountQwark();
 
-  return <button onClick={() => setCount(count + 1)}>Increment</button>
-  );
+  return <button onClick={() => setCount(count + 1)}>Increment</button>;
 };
 ```
 
@@ -35,10 +35,6 @@ const Button = () => {
 const Count = () => {
   const [count] = useCountQwark();
 
-  return <p>{count}</p>
-  );
+  return <p>{count}</p>;
 };
-
-
-
-
+```
