@@ -1,4 +1,4 @@
-# Qwark is the simplest global state hook for React with `useState` API
+# the simpliest way to make `useState` global
 
 `qwark` creates a global `useState` hook. No Context. No Providers. With `useState`-like API
 
