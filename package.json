@@ -26,5 +26,8 @@
     "global",
     "state",
     "atom"
+  ],
+  "files": [
+    "dist/"
   ]
 }
