@@ -18,5 +18,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/hyposlasher/qwark"
-  }
+  },
+  "keywords": [
+    "qwark",
+    "quark",
+    "react",
+    "global",
+    "state",
+    "atom"
+  ]
 }
