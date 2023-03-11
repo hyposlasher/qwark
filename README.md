@@ -19,9 +19,7 @@ yarn add qwark
 ```javascript
 import qwark from "qwark";
 
-const initialState = 0;
-
-const useCountQwark = qwark(initialState);
+const useCountQwark = qwark(0); // call with initial state
 ```
 ### Use the created qwark hook in any React component
 ``` javascript
